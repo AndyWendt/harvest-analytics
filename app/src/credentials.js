@@ -8,7 +8,8 @@
             username: username,
             password: password,
             setUsername: setUsername,
-            setPassword: setPassword
+            setPassword: setPassword,
+            basicAuth: basicAuth
         };
         
         function username() {
@@ -25,6 +26,10 @@
 
         function setUsername(username) {
             return window.localStorage.setItem('username', username);
+        }
+        
+        function basicAuth() {
+            return btoa(username() + ':' + password());
         }
     }
 })();

@@ -9,8 +9,7 @@
 
         function dateEntries(dayOfYear, year) {
             $http.get('https://pixelline.harvestapp.com/daily/' + parseInt(dayOfYear) + '/' + parseInt(year), {
-                //"username:password".
-                headers: {'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='}
+                headers: {'Authorization': 'Basic ' + Credentials.basicAuth()}
             });
         }
     }
