@@ -1,13 +1,14 @@
 (function () {
     'use strict';
-    angular.module('app')
-        .factory('QuarterService', QuarterService);
-    QuarterService.$inject = ['moment'];
-    function QuarterService(moment) {
+    angular.module('app').factory('dates', Dates);
+    
+    Dates.$inject = [];
+    function Dates() {
         return {
             quarterStart: quarterStart,
             quarterEnd: quarterEnd,
-            dayOfYear: dayOfYear
+            dayOfYear: dayOfYear,
+            lastYear: lastYear
         };
 
         /**
@@ -15,19 +16,23 @@
          * @returns {FiscalQuarter}
          */
         function quarterStart() {
-            return moment().startOf('quarter');
+            return window.moment().startOf('quarter');
         }
 
         function quarterEnd() {
-            return moment().endOf('quarter');
+            return window.moment().endOf('quarter');
         }
 
         function dayOfYear() {
-            return moment().dayOfYear();
+            return window.moment().dayOfYear();
         }
 
         function year() {
-            return moment().year();
+            return window.moment().year();
+        }
+        
+        function lastYear() {
+            return year() - 1;
         }
     }
 })();
