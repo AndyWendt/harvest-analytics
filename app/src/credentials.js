@@ -34,7 +34,7 @@
         }
 
         function needCredentials() {
-            return !!(password() || email());
+            return !(password() && email());
         }
     }
 })();

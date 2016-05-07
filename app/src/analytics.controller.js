@@ -8,12 +8,13 @@
     function AnalyticsController(Harvest, Credentials) {
         var ctrl = this;
         ctrl.needCredentials = Credentials.needCredentials;
+        
 
         _activate();
 
         function _activate() {
             
-            if (Credentials.needCredentials()) {
+            if (! Credentials.needCredentials()) {
                 Harvest.dateEntry(127, 2016).then(function (data) {
                     console.log(data);
                 });   
