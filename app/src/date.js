@@ -34,5 +34,8 @@
         function lastYear() {
             return year() - 1;
         }
+
+        //federal holidays
+        //https://www.opm.gov/policy-data-oversight/snow-dismissal-procedures/federal-holidays/#url=2016
     }
 })();
