@@ -8,8 +8,10 @@
         };
 
         function dateEntries(dayOfYear, year) {
-            $http.get('https://pixelline.harvestapp.com/daily/' + parseInt(dayOfYear) + '/' + parseInt(year), {
+            return $http.get('https://pixelline.harvestapp.com/daily/' + parseInt(dayOfYear) + '/' + parseInt(year), {
                 headers: {'Authorization': 'Basic ' + Credentials.basicAuth()}
+            }).then(function (data) {
+                return data;
             });
         }
     }
