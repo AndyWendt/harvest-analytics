@@ -26,6 +26,8 @@
                     return $q.reject(response);
                 },
                 'request': function (config) {
+                    config.headers.Accept = 'application/json';
+                    config.headers["Content-Type"] = 'application/json';
 
                     return config;
                 }

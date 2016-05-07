@@ -1,13 +1,13 @@
 (function () {
     'use strict';
     angular.module('app').factory('Harvest', Harvest);
-    Harvest.$inject = ['Credentials'];
-    function Harvest(Credentials) {
+    Harvest.$inject = ['Credentials', '$http'];
+    function Harvest(Credentials, $http) {
         return {
-            dateEntries: dateEntries
+            dateEntry: dateEntry
         };
 
-        function dateEntries(dayOfYear, year) {
+        function dateEntry(dayOfYear, year) {
             return $http.get('https://pixelline.harvestapp.com/daily/' + parseInt(dayOfYear) + '/' + parseInt(year), {
                 headers: {'Authorization': 'Basic ' + Credentials.basicAuth()}
             }).then(function (data) {

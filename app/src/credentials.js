@@ -5,15 +5,16 @@
     Credentials.$inject = [];
     function Credentials() {
         return {
-            username: username,
+            email: email,
             password: password,
-            setUsername: setUsername,
+            setEmail: setEmail,
             setPassword: setPassword,
-            basicAuth: basicAuth
+            basicAuth: basicAuth,
+            needCredentials: needCredentials
         };
         
-        function username() {
-            return window.localStorage.getItem('username');
+        function email() {
+            return window.localStorage.getItem('email');
         }
         
         function password() {
@@ -24,12 +25,16 @@
             return window.localStorage.setItem('password', password);
         }
 
-        function setUsername(username) {
-            return window.localStorage.setItem('username', username);
+        function setEmail(email) {
+            return window.localStorage.setItem('email', email);
         }
         
         function basicAuth() {
-            return btoa(username() + ':' + password());
+            return btoa(email() + ':' + password());
+        }
+
+        function needCredentials() {
+            return !!(password() || email());
         }
     }
 })();

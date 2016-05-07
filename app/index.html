@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>Harvest Analytics</title>
@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <script>window.$ = window.jQuery = require('./vendor/jquery.min.js');</script>
 </head>
-<body>
-     <h1>Harvest Analytics</h1>
+<body ng-controller="AnalyticsController as ctrl">
 
+    <div class="container">
+        <h1>Harvest Analytics</h1>
 
-
+        <ng-include ng-controller="CredentialsController as ctrl" src="'./templates/credentials-form.html'"></ng-include>
+    </div>
 </body>
 
 <script>
@@ -26,4 +28,6 @@
 <script src="./src/date.js"></script>
 <script src="./src/credentials.js"></script>
 <script src="./src/harvest.js"></script>
+<script src="./src/credentials.controller.js"></script>
+<script src="./src/analytics.controller.js"></script>
 </html>
