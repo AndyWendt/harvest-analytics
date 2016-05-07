@@ -26,8 +26,6 @@
                     return $q.reject(response);
                 },
                 'request': function (config) {
-                    config.headers.DiAuthorization = decisionInsiteApiUserToken;
-                    config.headers.ApiUserId = decisionInsiteApiUserId;
 
                     return config;
                 }

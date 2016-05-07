@@ -1,9 +1,9 @@
 (function () {
     'use strict';
-    angular.module('app').factory('dates', Dates);
+    angular.module('app').factory('Date', Date);
     
-    Dates.$inject = [];
-    function Dates() {
+    Date.$inject = [];
+    function Date() {
         return {
             quarterStart: quarterStart,
             quarterEnd: quarterEnd,
